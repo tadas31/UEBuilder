@@ -1,0 +1,22 @@
+{
+    "uprojectFullPath": "<project>\\MyProject.uproject",
+    "engineDir": "<engine>",
+    "buildArchiveDir": "<builds>",
+
+    "waitTimeBeforeREtryingBuildSeconds": 5,
+    "retryCount": 1,
+
+    "multiProcessCookEnabled": false,
+    "cookProcessCount": 4,
+
+    "buildCrashReporter": false,
+    "buildForDistribution": false,
+
+    "additionalParams":
+    [
+        {
+            "platform": "Win64", 
+            "params": "-SomeAdditionalParam"
+        }
+    ]
+}

@@ -4,6 +4,59 @@
 * install python 3
 * run `pip install -r requirements.txt`
 
+## Usage 
+
+Settup platforms in `PlatformsConfig.json`:
+```
+{
+    "platforms": 
+    [
+        {
+            "platformName": "Windows",  // User friendly platform name
+            "platform": "Win64",        // Platform name used when making build
+            "architecture": "x64",      // Platform architecture added in UE5.6 for pc platforms OPTIONAL
+            "enabled": true             // Should builder ask to build this platform
+        },
+        {
+            "platformName": "Android",
+            "platform": "Android",
+            "enabled": true
+        },
+        ...
+    ]
+}
+```
+
+Setup project in `ProjectConfig.json`:
+```
+{
+    "uprojectFullPath": "<project>\\MyProject.uproject",    // Full path to .uproject file
+    "engineDir": "<engine>",                                // Path to engine forlder
+    "buildArchiveDir": "<builds>",                          // Path to builds folder
+
+    "waitTimeBeforeREtryingBuildSeconds": 5,                // How long to wait before retrying build in seconds
+    "retryCount": 1,                                        // How many times to retry build
+
+    "multiProcessCookEnabled": false,                       // Should multiprocess cooker be used it was added from UE5.3 
+    "cookProcessCount": 4,                                  // How many processes to use for multiprocess cooking
+
+    "buildCrashReporter": false,                            // Should crash reporter be built
+    "buildForDistribution": false,                          // Is build for distribution
+
+    "additionalParams":                                     // Additional params OPTIONAL
+    [
+        {
+            "platform": "Win64",                            // Platform for which to add additional params
+            "params": "-SomeAdditionalParam"                // Platform additional params
+        }
+    ]
+}
+```
+
+To make packaged build run `package_build.bat`
+
+To build windows binaries only run `windows_binaries_build.bat`
+
 ## All RunUAT.bat BuildCookRun parameters from UE5.6.1
 
 to get updated parameters list use `RunUAT.bat BuildCookRun -help`

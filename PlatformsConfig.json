@@ -1,0 +1,16 @@
+{
+    "platforms": 
+    [
+        {
+            "platformName": "Windows",
+            "platform": "Win64",
+            "architecture": "x64",
+            "enabled": false
+        },
+        {
+            "platformName": "Android",
+            "platform": "Android",
+            "enabled": true
+        }
+    ]
+}
