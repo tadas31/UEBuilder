@@ -24,7 +24,7 @@ class Builder():
             os.mkdir(self.project_config.logsDir)
 
         current_time = datetime.datetime.now()
-        self.project_config.fullBuildsDir = f"{self.project_config.buildArchiveDir}\\{current_time.date()}_{current_time.hour}{current_time.minute}{current_time.second}"
+        self.project_config.fullBuildsDir = f"{self.project_config.buildArchiveDir}\\{current_time.strftime('%Y-%m-%d__%H-%M-%S')}"
 
         self.RunUAT_path = f"{self.project_config.engineDir}\\Engine\\Build\\BatchFiles\\RunUAT.bat"
 
@@ -116,6 +116,9 @@ class Builder():
             '-build',
             '-nocook'
         ]
+        if build_config.platformConfig.architecture:
+            build_command.append(f"-clientarchitecture={build_config.platformConfig.architecture}")
+
         self.add_optional_params(build_command, build_config, binaries_build)
         
         print(f"Building {build_config.platformConfig.platformName} binaries...")
@@ -231,9 +234,6 @@ class Builder():
 
         if self.project_config.buildForDistribution and not binaries_build:
             build_command.append('-distribution')
-
-        if build_config.platformConfig.architecture:
-            build_command.append(f"-clientarchitecture={build_config.platformConfig.architecture}")
 
         for additional_params in self.project_config.additionalParams:
             if additional_params.platform == build_config.platformConfig.platform:
