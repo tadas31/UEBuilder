@@ -11,6 +11,7 @@
 
     "buildCrashReporter": false,
     "buildForDistribution": false,
+    "buildUseZenStore": false,
 
     "additionalParams":
     [

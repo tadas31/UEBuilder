@@ -42,6 +42,7 @@ Setup project in `ProjectConfig.json`:
 
     "buildCrashReporter": false,                            // Should crash reporter be built
     "buildForDistribution": false,                          // Is build for distribution
+    "buildUseZenStore": false,                              // Should zen store be used
 
     "additionalParams":                                     // Additional params OPTIONAL
     [

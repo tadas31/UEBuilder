@@ -43,6 +43,7 @@ class ProjectConfig:
     cookProcessCount: int = 4
     buildCrashReporter: bool = False
     buildForDistribution: bool = False
+    buildUseZenStore: bool = False
     additionalParams: List[AdditionalParams] = None
 
     # Additional generated data
@@ -83,5 +84,6 @@ def parse_project_config(json_file: dict) -> ProjectConfig:
         cookProcessCount=data.get("cookProcessCount", 4),
         buildCrashReporter=data.get("buildCrashReporter", False),
         buildForDistribution=data.get("buildForDistribution", False),
+        buildUseZenStore=data.get("buildUseZenStore", False),
         additionalParams=additionalParams
     )

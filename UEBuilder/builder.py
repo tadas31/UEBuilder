@@ -155,6 +155,9 @@ class Builder():
         if build_config.buildCook == build_data.CookEnum.Incremental:
             build_command.append('-cookincremental')
 
+        if self.project_config.buildUseZenStore:
+            build_command.append('-zenstore')
+
         if self.project_config.multiProcessCookEnabled:
             build_command.append(f"-AdditionalCookerOptions=\"-cookprocesscount={self.project_config.cookProcessCount}\"")
 
